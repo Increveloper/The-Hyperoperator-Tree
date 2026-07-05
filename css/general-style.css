@@ -8,6 +8,13 @@ body {
 	background: var(--background)
 }
 
+span {
+	display: block;
+}
+
+.inlineDisplay {
+	display: inline;
+}
 /* General text */
 h1, h2, h3, b, input {
 	display: inline;
