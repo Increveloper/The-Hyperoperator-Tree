@@ -779,7 +779,7 @@ addLayer("a", {
         "d-14": {
             title: "AD IV",
             description: "Increase Addition Point gain based on Addition Power",
-            cost: new ExpantaNum(2e6),
+            cost: new ExpantaNum(1e6),
             currencyLayer: "a",
             currencyInternalName: "power",
             currencyDisplayName: "Addition Power",
@@ -795,7 +795,7 @@ addLayer("a", {
         "d-15": {
             title: "AD V",
             description: "Increase Multiplier Per Buy based on Addition Power",
-            cost: new ExpantaNum(5e7),
+            cost: new ExpantaNum(2e7),
             currencyLayer: "a",
             currencyInternalName: "power",
             currencyDisplayName: "Addition Power",
@@ -949,7 +949,7 @@ addLayer("a", {
             cost(){
                 let costScale = new ExpantaNum(2)
                 let costExp = new ExpantaNum(1.2)
-                let baseCost = new ExpantaNum(200)
+                let baseCost = new ExpantaNum(100)
 
                 return baseCost.mul(costScale.pow(player.a.dimensions.dim4.purchased).pow(costExp))
             },
@@ -965,7 +965,7 @@ addLayer("a", {
             cost(){
                 let costScale = new ExpantaNum(2.1)
                 let costExp = new ExpantaNum(1.2)
-                let baseCost = new ExpantaNum(250)
+                let baseCost = new ExpantaNum(150)
 
                 return baseCost.mul(costScale.pow(player.a.dimensions.dim5.purchased).pow(costExp))
             },
@@ -981,7 +981,7 @@ addLayer("a", {
             cost(){
                 let costScale = new ExpantaNum(2.2)
                 let costExp = new ExpantaNum(1.2)
-                let baseCost = new ExpantaNum(350)
+                let baseCost = new ExpantaNum(200)
 
                 return baseCost.mul(costScale.pow(player.a.dimensions.dim6.purchased).pow(costExp))
             },
@@ -997,7 +997,7 @@ addLayer("a", {
             cost(){
                 let costScale = new ExpantaNum(2.4)
                 let costExp = new ExpantaNum(1.2)
-                let baseCost = new ExpantaNum(450)
+                let baseCost = new ExpantaNum(300)
 
                 return baseCost.mul(costScale.pow(player.a.dimensions.dim7.purchased).pow(costExp))
             },
