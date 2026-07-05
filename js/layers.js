@@ -134,6 +134,11 @@ addLayer("st", {
                     strings.best[item] = `Your highest ${item} ever was ${format(best[item])}.`
                 }
             }
+            if(item === "Replication Points"){
+                if(best[item].lte(1)){
+                    strings.best[item] = ``
+                }
+            }
         }
         let percentages = ["Point efficiency", 'Successor efficiency', "Addition efficiency", "Addition Upgrade Effectiveness"]
         for(let i = 0; i < currAmnt.length; i++){ // Displays current values
@@ -183,7 +188,9 @@ addLayer("st", {
         }
         for(let i = 0; i < resourceNames.length; i++){ // Displays passive resources
             let r = resourceNames[i]
-            strings.passive[r] = `You are gaining ${format(funcs[r])} ${r} per second.`
+            if(funcs[r].gt(0)){
+                strings.passive[r] = `You are gaining ${format(funcs[r])} ${r} per second.`
+            }
         }
         let layerFormat = []
         for(let item in strings){ // Generates TabFormat (DO NOT CHANGE)
