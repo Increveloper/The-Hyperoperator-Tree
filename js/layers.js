@@ -103,7 +103,7 @@ addLayer("st", {
         let rep = player.m.replication
         let currAmnt = [ // Determines what gets displayed in strings.current
             {val:player.efficiency.points, name:"Point efficiency", type:"nonZero"}, 
-            {val:player.s.power, name:"Successor power", type:"nonZero"}, {val:player.s.effectiveness, name:"Successor effectiveness", type:"always"}, {val:player.s.amount, name:"Successor amount", type:"always"}, {val:player.efficiency.successor, name:"Successor efficiency", type:"nonZero"}, 
+            {val:player.s.power, name:"Successor power", type:"neq", unlocked:new ExpantaNum(1)}, {val:player.s.effectiveness, name:"Successor effectiveness", type:"always"}, {val:player.s.amount, name:"Successor amount", type:"always"}, {val:player.efficiency.successor, name:"Successor efficiency", type:"nonZero"}, 
             {val:player.efficiency.addition, name:"Addition efficiency", type:"nonZero"}, {val:player.a.upgEffectiveness, name:"Addition Upgrade Effectiveness", type:"neq", unlocked:new ExpantaNum(100)},
             {val:dim.multiplierPerBuy, name:"Base Multiplier Per Buy", type:"itemUnlock", unlocked:hasUpgrade("c", 13)},
             {val:rep.multiplier, name: "Replication Multiplier", type:"itemUnlock", unlocked:hasUpgrade("c", 15)}, {val:rep.interval, name:"Replication Interval", type:"itemUnlock", unlocked:hasUpgrade("c", 15), formatter:formatTime}, {val:rep.amount, name:"Replication Amount", type:"itemUnlock", unlocked:hasUpgrade("c", 15), formatter:formatWhole}
