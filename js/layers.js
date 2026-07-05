@@ -1808,17 +1808,20 @@ addLayer("m", {
         2: {
             requirementDescription: `10 total Multiplier Points`,
             effectDescription: `Keep 1 A upgrade per M reset, automate the first 4 A dimensions. Automated dimensions cost nothing.`,
-            done(){return player.m.total.gte(10)}
+            done(){return player.m.total.gte(10)},
+            unlocked(){return hasMilestone("m", 1)},
         },
         3: {
             requirementDescription: "15 Total Multiplication Points",
             effectDescription: "Autobuy the final 4 Addition Dimensions.",
-            done(){return player.m.total.gte(15)}
+            done(){return player.m.total.gte(15)},
+            unlocked(){return hasMilestone("m", 2)},
         },
         4: {
             requirementDescription: "20 M resets",
             effectDescription: "Keep up to 2.00e20 Addition Power on M reset.",
             done(){return player.m.resets.gte(20)},
+            unlocked(){return hasMilestone("m", 3)},
         }
     },
     tabFormat(){
