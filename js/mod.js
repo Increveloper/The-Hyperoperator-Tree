@@ -12,14 +12,18 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "",
+	num: "1.0",
+	name: "Multiplicative Growth",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v1.0</h3><br>
+		- Added 2 side layers.<br>
+		- Added 3 progress layers.<br>
+		- Added 58 upgrades.<br>
+		- Added 3 buyables.<br>
+		Current endgame: 12 Constant Points<br><br>
+		`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
