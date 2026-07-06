@@ -1553,7 +1553,7 @@ addLayer("m", {
                 return [eff1, eff2]
             },
             effectDisplay(){return `${format(this.effect()[0])}x to Multiplication Power, ${format(this.effect()[1])}x to Constant Points`},
-            unlocked(){return hasUpgrade("m", "r-14")
+            unlocked(){return hasUpgrade("m", "r-14")}
         },
         "r-21": {
             title: 'Replication V',
