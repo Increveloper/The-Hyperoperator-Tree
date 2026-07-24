@@ -70,11 +70,22 @@ function gridEffect(layer, id) {
 	return (gridRun(layer, 'getEffect', player[layer].grid[id], id))
 }
 
+function renderString(str, req){
+	return req ? ["display-text", str] : null
+}
+
+function getHighest(highest, current){
+	return highest.max(current)
+}
+
 function colorText(layer, customPath = false, layerPoints = true){
-	let validCustom = ["layer", "name", "whole", "precision"]
-	for(const key in customPath){
-		if(!(validCustom.includes(key)))throw new Error(`Invalid key found: ${key}`)
+	if(isPlainObject(customPath)){
+		let validCustom = ["layer", "name", "whole", "precision", "val", "depth"]
+		for(const key in customPath){
+			if(!(validCustom.includes(key)))throw new Error(`Invalid key found: ${key}`)
+		}
 	}
+	if(customPath.depth && !Array.isArray(customPath.depth))throw new Error(`Invalid input for depth: ${customPath.depth}`)
 	let target = new ExpantaNum(0)
 	let whole = false
 	let precision = 2
@@ -86,9 +97,23 @@ function colorText(layer, customPath = false, layerPoints = true){
 		const name = customPath.name ? customPath.name : "points"
 		whole = customPath.whole ? true : false
 		precision = customPath.precision ?? 2
-		target = player[targetLayer][name]
+		target = player[targetLayer]
+		if(customPath.depth){
+			for(const item of customPath.depth){
+				target = target[item]
+			}
+			if(target == undefined){
+				throw new Error(`Target is undefined for ${item} in ${customPath.depth}`)
+			}
+		} else{
+			target = target[name]
+			if(target == undefined){
+				throw new Error(`Target is undefined for ${name} in ${customPath.depth}`)
+			}
+		}
 	}
-    const input = whole ? formatWhole(target) : format(target, precision)
+    let input = whole ? formatWhole(target) : format(target, precision)
+	if(customPath.val) input = whole ? formatWhole(customPath.val) : format(customPath.val, precision)
 	return `<h2 style="color:${layers[layer].color}">${input}</h2>`
 }
 
@@ -97,45 +122,32 @@ function applyEffect(type, vars, layer, id, op, arrNum = -1){
 	let funcs = {
 		"add": (a, b) => a.add(b),
 		"mul": (a, b) => a.mul(b),
-		"sub": (a, b) => a.sub(b)
+		"sub": (a, b) => a.sub(b),
+		"pow": (a, b) => a.pow(b),
+		"div": (a, b) => a.div(b),
 	}
 	if(!funcs[op]){
 		throw new Error(`Invalid operator! ${op}`)
 	}
+	for(let i = 0; i < id.length; i++){
+		if(!(id[i] in layers[layer][type]))throw new Error(`ID ${id[i]} is invalid for layer ${layer}.`)
+		//console.log(layer, type, id)
+		let effect = layers[layer][type][id[i]].effect()
+		if(Array.isArray(effect)){
+			if(arrNum === -1)throw new Error(`Upgrade ${layer}-${id[i]}'s effect is an array!`)
+			else effect = effect[arrNum]
+		}
+		if(type === "buyables"){
+			vars = funcs[op](vars, effect)
+		} else if(type === "milestones" || type === "upgrades"){
+			//if(id[i] === 1 && layer === "e")console.log(player[layer][type].includes(id[i].toString()))
+			if(player[layer][type].includes(id[i].toString()) || player[layer][type].includes(id[i]))vars = funcs[op](vars, effect)
+		}
+		else{
+			throw new Error(`Invalid type! ${type}`)
+		}
+	}
 
-	if(arrNum === -1){
-		for(let i = 0; i < id.length; i++){
-			if(Array.isArray(tmp[layer][type][id[i]].effect)){
-				throw new Error(`Expected ${type} ${layer}-${id[i]}'s effect to be a number, got ${typeof tmp[layer][type][id[i]].effect}: ${tmp[layer][type][id[i]].effect}`)
-			}
-			if(type === "buyables"){
-				vars = funcs[op](vars, tmp[layer][type][id[i]].effect)
-			} else if(type === "milestones" || type === "upgrades"){
-				if(player[layer][type].includes(id[i]))vars = funcs[op](vars, tmp[layer][type][id[i]].effect)
-			}
-			else{
-				throw new Error(`Invalid type! ${type}`)
-			}
-		}
-	}
-	else if(arrNum >= 0){
-		for(let i = 0; i < id.length; i++){
-			if(!Array.isArray(layers[layer][type][id[i]].effect())){
-				throw new Error(`Expected ${type} ${layer}-${id[i]}'s effect to be an array, got ${typeof tmp[layer][type][id[i]].effect}: ${tmp[layer][type][id[i]].effect}`)
-			}
-			if(type === "buyables"){
-				vars = funcs[op](vars, tmp[layer][type][id[i]].effect[arrNum])
-			} else if(type === "milestones" || type === "upgrades"){
-				if(player[layer][type].includes(id[i]))vars = funcs[op](vars, tmp[layer][type][id[i]].effect[arrNum])
-			}
-			else{
-				throw new Error(`Invalid type! ${type}`)
-			}
-		}
-	}
-	else{
-		throw new Error(`Invalid array value! ${arrNum}`)
-	}
 	return vars
 }
 

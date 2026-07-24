@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0",
-	name: "Multiplicative Growth",
+	num: "2.0",
+	name: "Logarithmic Exponents",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -23,6 +23,12 @@ let changelog = `<h1>Changelog:</h1><br>
 		- Added 58 upgrades.<br>
 		- Added 3 buyables.<br>
 		Current endgame: 12 Constant Points<br><br>
+
+	<h3>v2.0</h3><br>
+		- Added 1 progress layer.<br>
+		- Added 22 upgrades.<br>
+		- Added 9 buyables.<br>
+		Current endgame: 120 Constant Points<br><br>
 		`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
@@ -67,6 +73,7 @@ function addedPlayerData() { return {
 		"successor": new ExpantaNum(0),
 		"addition": new ExpantaNum(0),
 		"multiplication": new ExpantaNum(0),
+		"exponentiation": new ExpantaNum(0),
 	},
 	gain: new ExpantaNum(0),
 	resetting: false,
@@ -78,6 +85,9 @@ function addedPlayerData() { return {
 		st: {
 			mainTabs: undefined,
 		},
+		c: {
+			mainTabs: "Main",
+		},
 		s: {
 			mainTabs: undefined,
 		},
@@ -85,6 +95,9 @@ function addedPlayerData() { return {
 			mainTabs: "Main",
 		},
 		m: {
+			mainTabs: "Main",
+		},
+		e: {
 			mainTabs: "Main",
 		}
 	}

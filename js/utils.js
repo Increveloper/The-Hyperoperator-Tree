@@ -106,6 +106,10 @@ function buyBuyable(layer, id) {
 	updateBuyableTemp(layer)
 }
 
+function addBuyables(layer, id, amount){
+	player[layer].buyables[id] = player[layer].buyables[id].add(amount)
+}
+
 function clickClickable(layer, id) {
 	if (!player[layer].unlocked || tmp[layer].deactivated) return
 	if (!tmp[layer].clickables[id].unlocked) return
@@ -430,4 +434,15 @@ function formatCost(layer, id, cost){
 		default:
 			return formatWhole(cost);
 	}
+}
+
+function enterLogarithm(){
+	player.lastResetted = 0
+	player.resetting = true
+	doReset("e")
+	layers.m.doReset("e")
+	layers.a.doReset("e")
+	layers.s.doReset("e")
+	player.points = new ExpantaNum(0)
+	player.e.logarithm.inLogarithm = !player.e.logarithm.inLogarithm
 }
