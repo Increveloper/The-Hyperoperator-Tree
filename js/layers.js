@@ -2547,7 +2547,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `Replications occur ${formatWhole(this.effect())} more times.`}
+            effectDisplay(){return `Replications occur ${formatWhole(this.effect())} more times.`},
+            unlocked(){return hasUpgrade("e", 11)}
         },
         13: {
             title: "Exponentiation III",
@@ -2559,7 +2560,8 @@ addLayer("e", {
 
                 return [eff1, eff2]
             },
-            effectDisplay(){ return `${format(this.effect()[0], 2, true)}x to the Replication Interval, ^${format(this.effect()[1])} to Point and Successor efficiency.`}
+            effectDisplay(){ return `${format(this.effect()[0], 2, true)}x to the Replication Interval, ^${format(this.effect()[1])} to Point and Successor efficiency.`},
+            unlocked(){return hasUpgrade("e",12)}
         },
         14: {
             title: "Exponentiation IV",
@@ -2570,7 +2572,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `^${format(this.effect())} to the Replication Multiplier.`}
+            effectDisplay(){return `^${format(this.effect())} to the Replication Multiplier.`},
+            unlocked(){return hasUpgrade("e", 13)}
         },
         15: {
             title: "Constant XII",
@@ -2582,7 +2585,8 @@ addLayer("e", {
 
                 return [eff1, eff2]
             },
-            effectDisplay(){return `+${format(this.effect()[0])} to <b>Constant II</b> & <b>III</b>'s limits, ^${this.effect()[1]} Constant Points.`}
+            effectDisplay(){return `+${format(this.effect()[0])} to <b>Constant II</b> & <b>III</b>'s limits, ^${this.effect()[1]} Constant Points.`},
+            unlocked(){return hasUpgrade("e", 14)}
         },
         21: {
             title: "Exponentiation V",
@@ -2594,7 +2598,8 @@ addLayer("e", {
 
                 return [eff1, eff2]
             },
-            effectDisplay(){return `${format(this.effect()[0])}x to Mult Per Buy, ${format(this.effect()[1])}x to Multiplication Power.`}
+            effectDisplay(){return `${format(this.effect()[0])}x to Mult Per Buy, ${format(this.effect()[1])}x to Multiplication Power.`},
+            unlocked(){return hasUpgrade("e", 15)}
         },
         22: {
             title: "Exponentiation VI",
@@ -2605,7 +2610,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `+${this.effect()} to <b>Replication Multiplier</b>'s base.`}
+            effectDisplay(){return `+${this.effect()} to <b>Replication Multiplier</b>'s base.`},
+            unlocked(){return hasUpgrade("e", 21)}
         },
         23: {
             title: "Exponentiation VII",
@@ -2623,7 +2629,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `^${format(this.effect())} to Score effect.`}
+            effectDisplay(){return `^${format(this.effect())} to Score effect.`},
+            unlocked(){return hasUpgrade("e", 22)}
         },
         24: {
             title: "Exponentiation VIII",
@@ -2634,7 +2641,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `${format(this.effect())}x to Point, Successor and Addition efficiency.`}
+            effectDisplay(){return `${format(this.effect())}x to Point, Successor and Addition efficiency.`},
+            unlocked(){return hasUpgrade("e", 23)}
         },
         25: {
             title: "Constant XIII",
@@ -2645,7 +2653,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `${format(this.effect())}x to Constant Points.`}
+            effectDisplay(){return `${format(this.effect())}x to Constant Points.`},
+            unlocked(){return hasUpgrade("e", 24)}
         },
         31: {
             title: "Exponentiation IX",
@@ -2656,7 +2665,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `${format(this.effect())}x to Point, Successor and Addition efficiency.`}
+            effectDisplay(){return `${format(this.effect())}x to Point, Successor and Addition efficiency.`},
+            unlocked(){return hasUpgrade("e", 25)}
         },
         32: {
             title: "Exponentiation X",
@@ -2667,7 +2677,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `${format(this.effect())}x to Exponentiation Points.`}
+            effectDisplay(){return `${format(this.effect())}x to Exponentiation Points.`},
+            unlocked(){return hasUpgrade("e", 31)}
         },
         33: {
             title: "Exponentiation XI",
@@ -2678,7 +2689,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `${format(this.effect())}x to Exponential Score.`}
+            effectDisplay(){return `${format(this.effect())}x to Exponential Score.`},
+            unlocked(){return hasUpgrade("e", 32)}
         },
         34: {
             title: "Constant XIV",
@@ -2689,7 +2701,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `+${format(this.effect())} Constant Points`}
+            effectDisplay(){return `+${format(this.effect())} Constant Points`},
+            unlocked(){return hasUpgrade("e", 33)}
         },
         35: {
             title: "Constant XV",
@@ -2700,7 +2713,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `${format(this.effect())}x to Constant Points.`}
+            effectDisplay(){return `${format(this.effect())}x to Constant Points.`},
+            unlocked(){return hasUpgrade("e", 34)}
         },
         "l-11": {
             title: "Logarithm I",
@@ -2714,7 +2728,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `${format(this.effect())}x to Exponential Score`}
+            effectDisplay(){return `${format(this.effect())}x to Exponential Score`},
+            unlocked(){return hasUpgrade("e", 35)}
         },
         "l-12": {
             title: "Logarithm II",
@@ -2728,7 +2743,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `${format(this.effect())}x to Logarithmic Points.`}
+            effectDisplay(){return `${format(this.effect())}x to Logarithmic Points.`},
+            unlocked(){return hasUpgrade("e", "l-11")}
         },
         "l-13": {
             title: "Logarithm III",
@@ -2747,7 +2763,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `+${format(this.effect())} to Logarithmic Score.`}
+            effectDisplay(){return `+${format(this.effect())} to Logarithmic Score.`},
+            unlocked(){return hasUpgrade("e", "l-12")}
         },
         "l-14": {
             title: "Logarithm IV",
@@ -2766,7 +2783,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `${format(this.effect())}x to Exponentiation Points`}
+            effectDisplay(){return `${format(this.effect())}x to Exponentiation Points`},
+            unlocked(){return hasUpgrade("e", "l-13")}
         },
         "l-15": {
             title: "Constant XVI",
@@ -2783,7 +2801,8 @@ addLayer("e", {
 
                 return [eff1, eff2]
             },
-            effectDisplay(){return `${format(this.effect()[0])}x to Logarithmic points, ${format(this.effect()[1])}x to Constant Points.`}
+            effectDisplay(){return `${format(this.effect()[0])}x to Logarithmic points, ${format(this.effect()[1])}x to Constant Points.`},
+            unlocked(){return hasUpgrade("e", "l-14")}
         },
         "l-21": {
             title: "Logarithm V",
@@ -2798,7 +2817,8 @@ addLayer("e", {
 
                 return [eff1, eff2]
             },
-            effectDisplay(){return `${format(this.effect()[0])}x to Logarithmic Points, ${format(this.effect()[1])}x to Exponential Score.`}
+            effectDisplay(){return `${format(this.effect()[0])}x to Logarithmic Points, ${format(this.effect()[1])}x to Exponential Score.`},
+            unlocked(){return hasUpgrade("e", "l-15")}
         },
         "l-22": {
             title: "Logarithm VI",
@@ -2807,6 +2827,7 @@ addLayer("e", {
             currencyDisplayName: "Logarithmic Points",
             currencyInternalName: "points",
             currencyLocation(){return player.e.logarithm},
+            unlocked(){return hasUpgrade("e", "l-21")}
         },
         "l-23": {
             title: "Logarithm  VII",
@@ -2825,7 +2846,8 @@ addLayer("e", {
 
                 return eff
             },
-            effectDisplay(){return `+${format(this.effect(), 3)} to <b>Replication Interval</b>'s base.`}
+            effectDisplay(){return `+${format(this.effect(), 3)} to <b>Replication Interval</b>'s base.`},
+            unlocked(){return hasUpgrade("e", "l-22")}
         },
         "l-24": {
             title: "Logarithm VIII",
@@ -2840,7 +2862,8 @@ addLayer("e", {
 
                 return [eff1, eff2]
             },
-            effectDisplay(){return `${format(this.effect()[0])}x, ^${format(this.effect()[1])} to base Logarithmic Points.`}
+            effectDisplay(){return `${format(this.effect()[0])}x, ^${format(this.effect()[1])} to base Logarithmic Points.`},
+            unlocked(){return hasUpgrade("e", "l-23")}
         },
         "l-25": {
             title: "Constant XVII",
@@ -2854,6 +2877,7 @@ addLayer("e", {
 
                 return eff
             },
+            unlocked(){return hasUpgrade("e", "l-24")}
         },
         "l-31": {
             title: "Logarithm IX",
@@ -2866,7 +2890,8 @@ addLayer("e", {
                 let eff1 = new ExpantaNum(2)
                 let eff2 = layers.e.upgrades["l-24"].effect()[1].pow(0.7)
                 return [eff1, eff2]
-            }
+            },
+            unlocked(){return hasUpgrade("e", "l-25")}
         },
         "l-32": {
             title: "Logarithm X",
@@ -2880,7 +2905,8 @@ addLayer("e", {
 
                 return [new ExpantaNum(1), eff]
             },
-            effectDisplay(){return `-${format(this.effect()[0])} to Logarithm base, ${format(this.effect()[1])}x to Successor Effectiveness.`}
+            effectDisplay(){return `-${format(this.effect()[0])} to Logarithm base, ${format(this.effect()[1])}x to Successor Effectiveness.`},
+            unlocked(){return hasUpgrade("e", "l-31")}
         },
         "l-33": {
             title: "Logarithm XI",
@@ -2894,7 +2920,8 @@ addLayer("e", {
                 let eff2 = new ExpantaNum(1)
 
                 return [eff1, eff2]
-            }
+            },
+            unlocked(){return hasUpgrade("e", "l-32")}
         },
         "l-34": {
             title: "Constant XVIII",
@@ -2909,7 +2936,8 @@ addLayer("e", {
 
                 return [eff1, eff2]
             },
-            effectDisplay(){return `^${format(this.effect()[0])} to <b>Constant XVI</b>, ^${format(this.effect()[1])} to Constant Points.`}
+            effectDisplay(){return `^${format(this.effect()[0])} to <b>Constant XVI</b>, ^${format(this.effect()[1])} to Constant Points.`},
+            unlocked(){return hasUpgrade("e", "l-33")}
         },
         "l-35": {
             title: "Constant XIX",
@@ -2925,6 +2953,7 @@ addLayer("e", {
                 return [eff1, eff2]
             },
             effectDisplay(){return `+${format(this.effect()[0])} to Logarithmic Score, ${format(this.effect()[1])}x to Constant Points.`},
+            unlocked(){return hasUpgrade("e", "l-34")}
         },
     },
     buyables: {
@@ -3253,21 +3282,25 @@ addLayer("e", {
 
                 return eff
             },
+            unlocked(){return hasMilestone("e", 0)}
         },
         2: {
             requirementDescription: `3 Exponents`,
             effectDescription: `Gain 10% of Multiplication Points on reset each second.`,
-            done(){return player.e.exponents.gte(3)}
+            done(){return player.e.exponents.gte(3)},
+            unlocked(){return hasMilestone("e", 1)}
         },
         3: {
             requirementDescription: `4 Exponents`,
             effectDescription: `The first three Multiplication Buyables are always unlocked. Keep the first 10 Multiplication upgrades.`,
-            done(){return player.e.exponents.gte(4)}
+            done(){return player.e.exponents.gte(4)},
+            unlocked(){return hasMilestone("e", 2)}
         },
         4: {
             requirementDescription: "100 total Eponentiation Points",
             effectDescription: "Keep the first row of Replication and Power upgrades.",
-            done(){return player.e.total.gte(100)}
+            done(){return player.e.total.gte(100)},
+            unlocked(){return hasMilestone("e", 3)}
         },
         5: {
             requirementDescription: "200 total Exponentiation Points",
@@ -3277,7 +3310,8 @@ addLayer("e", {
                 let eff = new ExpantaNum(4)
 
                 return eff
-            }
+            },
+            unlocked(){return hasMilestone("e", 4)}
         },
         6: {
             requirementDescription: "1000 total Exponentiation Points",
@@ -3287,17 +3321,20 @@ addLayer("e", {
                 let eff = new ExpantaNum(2)
 
                 return eff
-            }
+            },
+            unlocked(){return hasMilestone("e", 5)}
         },
         7: {
             requirementDescription: "25,000 total Exponentiation Points",
             effectDescription: "Start with 1000 Replication Points on reset.",
-            done(){return player.e.total.gte(25000)}
+            done(){return player.e.total.gte(25000)},
+            unlocked(){return hasMilestone("e", 6)}
         },
         8: {
             requirementDescription: "100,000 total Exponentiatiion Points",
             effectDescription: "Bulk buy 5 of the first three Multiplication buyables.",
             done(){return player.e.total.gte(100000)},
+            unlocked(){return hasMilestone("e", 7)}
         },
     },
     clickables: {
