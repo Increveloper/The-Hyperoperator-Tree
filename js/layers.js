@@ -1260,7 +1260,7 @@ addLayer("m", {
         gain = gain.pow(tmp.m.exponent)
         gain = gain.mul(tmp.m.gainMult)
 
-        return gain
+        return gain.floor()
     },
     getPassiveMultiplications(){
         let gain = new ExpantaNum(0)
